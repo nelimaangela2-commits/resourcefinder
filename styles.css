@@ -47,8 +47,17 @@ body{
     padding: 10px;
     border-radius: 4px;
 }
-}
 
 .menu-li:hover{
     color: #7A3100;
+}
+
+h1{
+    text-align: center;
+    color: #454545;
+}
+
+h2{
+    text-align: center;
+    color: #454545;
 }
