@@ -26,3 +26,28 @@ items.forEach(item => {
 document.getElementById("searchBtn").addEventListener("click", () => {
     alert("Searching for: " + search.value);
 });
+
+const dropdownItems = document.querySelectorAll(".dropdown .item");
+const resourceCards = document.querySelectorAll(".resource-card");
+
+dropdownItems.forEach(item => {
+
+    item.addEventListener("click", function () {
+
+        const selectedCategory = this.textContent.toLowerCase();
+
+        resourceCards.forEach(card => {
+
+            const category = card.dataset.category.toLowerCase();
+
+            if (category === selectedCategory) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+    });
+
+});
