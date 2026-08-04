@@ -52,39 +52,3 @@ dropdownItems.forEach(item => {
 
 });
 
-//Select all "Add to favorites" buttons on the page
-const favoriteButtons = document.querySelectorAll(".favoritesBtn")
-
-//Loop through each button
-favoriteButtons.forEach(button => {
-    
-    //Listen for a click on the button
-    button.addEventListener("click", () => {
-
-        //Find the reource card that contains the clicked button
-        const card = button.closest(".resource-card");
-
-        //Create an oject containing the resource information
-        const resource = {
-            title: card.querySelector("h3").textContent,
-            description: card.querySelector("p").textContent
-        };
-
-        let favorites = JSON.parse(localStorage.getItem("favorites")) ǀǀ [];
-
-        // Check whether theresource is already in favorites
-        const exists = favorites.some(item => item.title === resource.title);
-
-        if(!exists) {
-            //Add the new resource to the array
-            favorites.push(resource);
-
-            //Save the updated array
-            localStorage.setItem("favorites", JSON.stringify(favorites));
-
-            alert("Added to favorites");
-        } else{
-            alert("This resource is already in your favorites");
-        }
-    });
-});
