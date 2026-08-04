@@ -144,6 +144,15 @@ button:hover{
     background-color: #8C3A2B;
 }
 
+.favoritesBtn{
+     background-color: #69140E;
+    color: white;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    margin-top: 5px;   
+}
+
 
 hr{
     color: #130303;
