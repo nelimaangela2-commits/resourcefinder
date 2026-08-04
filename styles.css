@@ -129,6 +129,7 @@ body{
     color: white;
     display: block;
     margin: auto;
+    cursor: pointer;
 }
 
 .detailsBtn:hover{
