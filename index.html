@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resource finder</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav class="navbar">
-        <img class="brand-logo" src="./images/maroonlogo.png" alt="This is the resource finder logo">
+        <img class="brand-logo" src="images/maroonlogo.png" alt="This is the resource finder logo">
         <ul class="menu-items">
             <li class="menu-li"><a href="">Home</a></li>
             <li class="menu-li"><a href="resource-details.html">Resources</a></li>
@@ -17,8 +17,22 @@
     </nav>
     <div id="title">
         <h1>Find Community Resources Around Nairobi County</h1>
-        <h2>Search for free clinics, food banks, shelters, legal aid and other support services.</h2>
+        <h2>What do you need today?</h2>
     </div>
+    <div>
+        <p>Browse by the categoties below.Everything here is free or low-cost across Nairobi County</p>
+    </div>
+    <label for="search">Search resources</label>
+    <input type="text" placeholder="Search Resources" list="resource-list">
+    <div class="dropdown">
+        <div class="item">Clinics</div>
+        <div class="item">Food Banks</div>
+        <div class="item">Shelters</div>
+        <div class="item">Legal Aid</div>
+        <div class="item">Financial</div>
+        <div class="item">Counselling</div>
+    </div>
+    <button>Search</button>
     
 </body>
 </html>
