@@ -120,10 +120,30 @@ body{
     background-color: #F4E1CD;
 }
 
+.detailsBtn{
+    background-color: #69140E;
+    color: white;
+    display: block;
+    margin: auto;
+}
+
+.detailsBtn:hover{
+    background-color: #8C3A2B;
+}
+
 p{
     text-align: center;
 }
 
 hr{
     color: #130303;
+}
+
+.card{
+    width: 350px;
+    margin: 50px auto;
+    border: 2px dotted #69140E;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
