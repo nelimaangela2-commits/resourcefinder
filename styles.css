@@ -1,5 +1,6 @@
 body{
    background-color: #F4E1CD;
+   padding-top: 150px;
 }
 
 .navbar{
@@ -49,15 +50,10 @@ body{
 }
 
 .menu-li:hover{
-    color: #7A3100;
+    background-color: #7A3100;
 }
 
-h1{
+#title{
     text-align: center;
-    color: #454545;
-}
-
-h2{
-    text-align: center;
-    color: #454545;
+    color: #130303;
 }
