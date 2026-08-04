@@ -119,3 +119,7 @@ body{
 .item:hover{
     background-color: #F4E1CD;
 }
+
+p{
+    text-align: center;
+}
