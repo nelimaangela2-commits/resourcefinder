@@ -124,6 +124,14 @@ body{
     text-align: center;
 }
 
+button{
+    background-color: #69140E;
+    color: white;
+}
+button:hover{
+    background-color: #8C3A2B;
+}
+
 .detailsBtn{
     background-color: #69140E;
     color: white;
