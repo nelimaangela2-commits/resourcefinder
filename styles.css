@@ -70,3 +70,52 @@ body{
     position: relative;
     width: 400px;
 }
+
+#search{
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #69140E;
+    border-radius: 8px;
+    outline: none;
+}
+
+#search:focus{
+    border-color: #8C3A2B;
+}
+
+#searchBtn{
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: #69140E;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#searchBtn:hover{
+    background-color: #8C3A2B;
+}
+
+.dropdown{
+    display: none;
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    z-index: 100;
+}
+
+.item{
+    padding: 12px;
+    cursor: pointer;
+}
+
+.item:hover{
+    background-color: #F4E1CD;
+}
