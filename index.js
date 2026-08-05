@@ -52,3 +52,33 @@ dropdownItems.forEach(item => {
 
 });
 
+
+//get the search input field
+const searchInput = document.getElementById("search");
+
+//Get all resource cards
+const resourceCards = document.querySelectorAll(".resource-card");
+
+//Listen for every key the user types
+searchInput.addEventListener("input", () => {
+
+    //Get the text entered by the user
+    //Convert it to lowercase so the search is not case-sensitive
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    //Loop thrught all resource cards
+    resourceCards.forEach(card => {
+
+        //Convert it to lowercase
+        const cardText = card.textContent.toLowerCase();
+
+        //Check if the card contains the search text
+        if (cardText.includes(searchTerm)) {
+            //Show the card if it matches
+            card.style.display = "block";
+        } else {
+            //Hide the card if it doesn't match
+            card.style.display = "none";
+        }
+    });
+});
