@@ -81,13 +81,14 @@ const observer = new IntersectionObserver((entries) => {
 
                         current += increment;
 
-                        counter.textContent = Math.ceil(current);
+                        const symbol = counter.dataset.symbol || "";
+                        counter.textContent = Math.ceil(current) + symbol;
 
                         requestAnimationFrame(updateCounter);
 
                     } else {
 
-                        counter.textContent = target;
+                        counter.textContent = target + symbol;
                     }
 
                 };
