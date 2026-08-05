@@ -162,9 +162,12 @@ hr{
 }
 
 .impact{
+    background-image: url(./images/skyline.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 80px 10%;
     text-align: center;
-    background-color: #f8f5f2;
 }
 
 .impact h2{
@@ -181,11 +184,13 @@ hr{
 }
 
 .impact-card{
-    background: white;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     width: 220px;
-    padding: 30px 20px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.2);
     transition: transform 0.3s ease;
 }
 
