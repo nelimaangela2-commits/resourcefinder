@@ -161,6 +161,48 @@ hr{
     margin: 30px 0;
 }
 
+.impact{
+    padding: 80px 10%;
+    text-align: center;
+    background-color: #f8f5f2;
+}
+
+.impact h2{
+    color: maroon;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.impact-container{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.impact-card{
+    background: white;
+    width: 220px;
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.impact-card:hover {
+    transform: translateY(-8px);
+}
+
+.impact-card h3 {
+    font-size: 2.8rem;
+    color: maroon;
+    margin-bottom: 10px;
+}
+
+.impact-card p {
+    color: #555;
+}
+
 .resource-card{
     width: 350px;
     margin: 50px auto;
