@@ -53,32 +53,51 @@ dropdownItems.forEach(item => {
 });
 
 
-//get the search input field
-const searchInput = document.getElementById("search");
+// Get every "Add to Favorites" button
+const favoriteButtons = document.querySelectorAll(".favorite-btn");
 
-//Get all resource cards
-const resourceCards = document.querySelectorAll(".resource-card");
+// Loop through each button
+favoriteButtons.forEach(button => {
 
-//Listen for every key the user types
-searchInput.addEventListener("input", () => {
+    // Wait for the button to be clicked
+    button.addEventListener("click", () => {
 
-    //Get the text entered by the user
-    //Convert it to lowercase so the search is not case-sensitive
-    const searchTerm = searchInput.value.toLowerCase().trim();
+        // Get the resource card that contains this button
+        const card = button.closest(".resource-card");
 
-    //Loop thrught all resource cards
-    resourceCards.forEach(card => {
+        // Get the resource title
+        const title = card.querySelector(".resource-title").textContent;
 
-        //Convert it to lowercase
-        const cardText = card.textContent.toLowerCase();
+        // Get the resource description
+        const description = card.querySelector(".resource-description").textContent;
 
-        //Check if the card contains the search text
-        if (cardText.includes(searchTerm)) {
-            //Show the card if it matches
-            card.style.display = "block";
-        } else {
-            //Hide the card if it doesn't match
-            card.style.display = "none";
+        // Create an object to store the resource information
+        const resource = {
+            title,
+            description
+        };
+
+        // Get the current favorites from localStorage
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        // Check if the resource is already in favorites
+        const alreadyExists = favorites.some(item => item.title === title);
+
+        if (!alreadyExists) {
+
+            // Add the resource to the favorites array
+            favorites.push(resource);
+
+            // Save the updated array back to localStorage
+            localStorage.setItem("favorites", JSON.stringify(favorites));
         }
+
+        // Change the button text
+        button.textContent = "Added to Favorites";
+
+        // Disable the button so it can't be clicked again
+        button.disabled = true;
+
     });
+
 });
