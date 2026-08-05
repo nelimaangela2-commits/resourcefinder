@@ -127,9 +127,11 @@ body{
 button{
     background-color: #69140E;
     color: white;
+    transition: .3s;
 }
 button:hover{
     background-color: #8C3A2B;
+    transform:scale(1.05);
 }
 
 .detailsBtn{
