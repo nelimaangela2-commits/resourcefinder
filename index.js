@@ -75,13 +75,13 @@ const observer = new IntersectionObserver((entries) => {
                 // Increase the number gradually
                 const increment = target / 100;
 
+                const symbol = counter.dataset.symbol || "";
+
                 const updateCounter = () => {
 
                     if (current < target) {
 
                         current += increment;
-
-                        const symbol = counter.dataset.symbol || "";
                         counter.textContent = Math.ceil(current) + symbol;
 
                         requestAnimationFrame(updateCounter);
@@ -144,9 +144,10 @@ buttons.forEach(button => {
 // Close when X is clicked
 closeBtn.addEventListener("click", function () {
 
-    modal.style.display = "none";
+     modal.style.display = "none";
 
 });
+
 
 // Close when clicking outside the popup
 window.addEventListener("click", function (event) {
