@@ -302,3 +302,141 @@ footer{
     white-space: pre-line; /* Keeps Phone and Email on separate lines */
     line-height: 1.6;
 }
+
+/* ========================= */
+/* Help Section */
+/* ========================= */
+
+.help-section{
+    max-width: 700px;
+    margin: 150px auto 60px;
+    padding: 35px;
+    background-color: rgba(255,255,255,0.85);
+    border: 2px solid #69140E;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+
+.help-section h1{
+    text-align: center;
+    color: #69140E;
+    margin-bottom: 10px;
+    font-size: 38px;
+}
+
+.help-section p{
+    text-align: center;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+
+/* ========================= */
+/* Form */
+/* ========================= */
+
+.help-form{
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Labels */
+
+.help-form label{
+    margin-bottom: 8px;
+    margin-top: 18px;
+    color: #69140E;
+    font-weight: bold;
+}
+
+
+/* Textboxes */
+
+.help-form input,
+.help-form textarea{
+
+    width: 100%;
+    padding: 12px;
+
+    border: 2px solid #69140E;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+
+    outline: none;
+    transition: .3s;
+}
+
+
+/* Focus Effect */
+
+.help-form input:focus,
+.help-form textarea:focus{
+
+    border-color: #3C1518;
+    box-shadow: 0 0 8px rgba(105,20,14,.3);
+
+}
+
+
+/* Prevent resizing sideways */
+
+.help-form textarea{
+
+    resize: vertical;
+    min-height: 180px;
+
+}
+
+
+/* Submit Button */
+
+.help-form button{
+
+    margin-top: 30px;
+
+    background-color: #69140E;
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 15px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+/* Hover */
+
+.help-form button:hover{
+
+    background-color: #3C1518;
+    transform: translateY(-2px);
+
+}
+
+
+/* Success Message */
+
+.success-message{
+
+    display: none;
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: green;
+    font-weight: bold;
+
+}
