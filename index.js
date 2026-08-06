@@ -53,60 +53,7 @@ dropdownItems.forEach(item => {
 });
 
 
-// Select all the numbers
-const counters = document.querySelectorAll(".counter");
 
-// Create an observer that watches when the section appears
-const observer = new IntersectionObserver((entries) => {
-
-    entries.forEach(entry => {
-
-        // Only start the animation if the counters are visible
-        if (entry.isIntersecting) {
-
-            counters.forEach(counter => {
-
-                // Get the final number from the data-target attribute
-                const target = Number(counter.dataset.target);
-
-                // Current number starts at zero
-                let current = 0;
-
-                // Increase the number gradually
-                const increment = target / 100;
-
-                const symbol = counter.dataset.symbol || "";
-
-                const updateCounter = () => {
-
-                    if (current < target) {
-
-                        current += increment;
-                        counter.textContent = Math.ceil(current) + symbol;
-
-                        requestAnimationFrame(updateCounter);
-
-                    } else {
-
-                        counter.textContent = target + symbol;
-                    }
-
-                };
-
-                updateCounter();
-
-            });
-
-            // Stop observing after the animation has run once
-            observer.disconnect();
-
-        }
-
-    });
-
-});
-
-// Watch the Impact section
 // Impact section
 const impact = document.getElementById("impact");
 
