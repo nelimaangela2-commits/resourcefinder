@@ -3,13 +3,16 @@ const dropdown = document.getElementById("dropdown");
 const items = document.querySelectorAll(".item");
 
 //Show dropdown when input is focused
-search.addEventListener("focus", () => {
-    dropdown.style.display = "block";
-});
+if (search && dropdown) {
+    search.addEventListener("focus", () => {
+
+       dropdown.style.display = "block";
+    });
+}
 
 //Hide dropdown when clicking outside 
 document.addEventListener("click", (event) => {
-    if (!event.target.closest(".search-container")) {
+    if (dropdown && !event.target.closest(".search-container")) {
         dropdown.style.display = "none";
     }
 });
@@ -111,6 +114,7 @@ const closeBtn = document.querySelector(".close-btn");
 // Get all View Details buttons
 const buttons = document.querySelectorAll(".detailsBtn");
 
+if (modal && closeBtn) {
 // Add a click event to every button
 buttons.forEach(button => {
 
@@ -146,6 +150,8 @@ window.addEventListener("click", function (event) {
     }
 
 });
+
+}
 
 
 // Add to Favorites
@@ -192,13 +198,37 @@ favoriteButtons.forEach(button => {
 const favoritesContainer = document.getElementById("favoritesContainer");
 
 if (favoritesContainer) {
-    favorites.forEach(resource => {
-        favoritesContainer.innerHTML += `
-            <div class="resource-card">
-                <h3>${resource.title}</h3>
-                <p>${resource.location}</p>
-                <p>${resource.hours}</p>
-            </div>
-        `;
+    renderFavorites();
+}
+
+function renderFavorites() {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    if (favorites.length === 0) {
+        favoritesContainer.innerHTML = "<p>You haven't added any favorites yet.</p>";
+        return;
+    }
+
+    favoritesContainer.innerHTML = favorites.map(resource => `
+        <div class="resource-card">
+            <h3>${resource.title}</h3>
+            <p>${resource.location}</p>
+            <p>${resource.hours}</p>
+            <button class="removeBtn" data-id="${resource.id}">Remove from Favorites</button>
+        </div>
+    `).join("");
+
+    // Wire up the remove buttons after they're added to the page
+    document.querySelectorAll(".removeBtn").forEach(button => {
+        button.addEventListener("click", function () {
+            removeFavorite(this.dataset.id);
+        });
     });
+}
+
+function removeFavorite(id) {
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    favorites = favorites.filter(item => item.id !== id);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    renderFavorites(); // re-render so the removed card disappears immediately
 }
