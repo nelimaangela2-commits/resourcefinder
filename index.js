@@ -174,11 +174,14 @@ favoriteButtons.forEach(button => {
 favoriteButtons.forEach(button => {
     button.addEventListener("click", function () {
         const card = this.closest(".resource-card");
+        const detailsBtn = card.querySelector(".detailsBtn");
         const resource = {
             id: card.dataset.id,
             title: card.querySelector("h3").textContent,
             location: card.querySelectorAll("p")[0].textContent,
-            hours: card.querySelectorAll("p")[1].textContent
+            hours: card.querySelectorAll("p")[1].textContent,
+            description: detailsBtn.dataset.description,
+            contact: detailsBtn.datset.contact,
         };
 
         const exists = favorites.some(item => item.id === resource.id);
@@ -214,9 +217,20 @@ function renderFavorites() {
             <h3>${resource.title}</h3>
             <p>${resource.location}</p>
             <p>${resource.hours}</p>
+            <button class="detailsBtn"
+            data-description="${resource.description || ''}"
+            data-contact="${resource.contact || ''}">View Details</button>
             <button class="removeBtn" data-id="${resource.id}">Remove from Favorites</button>
         </div>
     `).join("");
+
+    document.querySelectorAll("#favoritesContainer .detailsBtn").forEach(button => {
+        button.addEventListener("click", function () {
+            document.getElementById("modalDescription").textContent = this.dataset.description;
+            document.getElementById("modalContact").textContent = this.dataset.contect;
+            if (modal) modal.style.display = "flex";
+        });
+    });
 
     // Wire up the remove buttons after they're added to the page
     document.querySelectorAll(".removeBtn").forEach(button => {

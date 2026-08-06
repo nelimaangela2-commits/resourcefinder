@@ -441,3 +441,15 @@ footer{
 
 }
 
+.removeBtn{
+    background-color: #69140E;
+    color: white;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+}
+
+.removeBtn:hover{
+    background-color: #8C3A2B;
+}
+
