@@ -107,7 +107,11 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 // Watch the Impact section
-observer.observe(document.querySelector(".impact"));
+const impact = document.getElementById("impact");
+
+if (impact) {
+    observer.observe(impact);
+}
 
 // Get the modal
 const modal = document.getElementById("detailsModal");
