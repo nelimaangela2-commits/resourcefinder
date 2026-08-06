@@ -150,3 +150,97 @@ window.addEventListener("click", function (event) {
     }
 
 });
+
+
+// Select all Add to Favorites buttons
+const favoriteButtons = document.querySelectorAll(".favoritesBtn");
+
+// Add a click event to every button
+favoriteButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        // Get the resource card
+        const card = this.closest(".resource-card");
+
+        // Create an object with the resource details
+        const resource = {
+            title: card.querySelector("h3").textContent,
+            location: card.querySelectorAll("p")[0].textContent,
+            hours: card.querySelectorAll("p")[1].textContent
+        };
+
+        // Get existing favorites
+        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+        // Check if already saved
+        const exists = favorites.some(item => item.title === resource.title);
+
+        if (!exists) {
+
+            favorites.push(resource);
+
+            // Save back to localStorage
+            localStorage.setItem("favorites", JSON.stringify(favorites));
+
+            // Change button text
+            this.textContent = "Added to Favorites";
+
+        } else {
+
+            alert("This resource is already in your favorites.");
+
+        }
+
+    });
+
+});
+
+
+
+
+const favoritesContainer = document.getElementById("favoritesContainer");
+
+if (favoritesContainer) {
+
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    favorites.forEach(resource => {
+
+        favoritesContainer.innerHTML += `
+
+        <div class="resource-card">
+
+            <h3>${resource.title}</h3>
+
+            <p>${resource.location}</p>
+
+            <p>${resource.hours}</p>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+favoriteButtons.forEach(button => {
+
+    const card = button.closest(".resource-card");
+
+    const title = card.querySelector("h3").textContent;
+
+    const exists = favorites.some(item => item.title === title);
+
+    if (exists) {
+
+        button.textContent = "Added to Favorites";
+        button.disabled = true;
+
+    }
+
+});
