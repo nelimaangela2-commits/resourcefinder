@@ -248,3 +248,50 @@ footer{
 .copyright{
     text-align: center;
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #F4E1CD;
+    width: 400px;
+    max-width: 90%;
+    padding: 25px;
+    border-radius: 15px;
+    position: relative;
+    text-align: left;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.modal h2 {
+    color: #3C1518;
+    margin-bottom: 15px;
+}
+
+.modal h3 {
+    color: #69140E;
+    margin-top: 20px;
+}
+
+#modalDescription {
+    line-height: 1.6;
+}
+
+#modalContact {
+    white-space: pre-line; /* Keeps Phone and Email on separate lines */
+    line-height: 1.6;
+}
