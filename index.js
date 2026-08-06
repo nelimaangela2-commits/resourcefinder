@@ -181,7 +181,7 @@ favoriteButtons.forEach(button => {
             location: card.querySelectorAll("p")[0].textContent,
             hours: card.querySelectorAll("p")[1].textContent,
             description: detailsBtn.dataset.description,
-            contact: detailsBtn.datset.contact,
+            contact: detailsBtn.dataset.contact,
         };
 
         const exists = favorites.some(item => item.id === resource.id);
@@ -227,7 +227,7 @@ function renderFavorites() {
     document.querySelectorAll("#favoritesContainer .detailsBtn").forEach(button => {
         button.addEventListener("click", function () {
             document.getElementById("modalDescription").textContent = this.dataset.description;
-            document.getElementById("modalContact").textContent = this.dataset.contect;
+            document.getElementById("modalContact").textContent = this.dataset.contact;
             if (modal) modal.style.display = "flex";
         });
     });
