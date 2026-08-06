@@ -107,10 +107,56 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 // Watch the Impact section
+// Impact section
 const impact = document.getElementById("impact");
 
 if (impact) {
+
+    const counters = document.querySelectorAll(".counter");
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                counters.forEach(counter => {
+
+                    const target = Number(counter.dataset.target);
+                    let current = 0;
+                    const increment = target / 100;
+                    const symbol = counter.dataset.symbol || "";
+
+                    const updateCounter = () => {
+
+                        if (current < target) {
+
+                            current += increment;
+                            counter.textContent = Math.ceil(current) + symbol;
+                            requestAnimationFrame(updateCounter);
+
+                        } else {
+
+                            counter.textContent = target + symbol;
+
+                        }
+
+                    };
+
+                    updateCounter();
+
+                });
+
+                observer.disconnect();
+
+            }
+
+        });
+
+    });
+
     observer.observe(impact);
+
 }
 
 // Get the modal
