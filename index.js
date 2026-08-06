@@ -22,10 +22,6 @@ items.forEach(item => {
     });
 });
 
-//search button
-document.getElementById("searchBtn").addEventListener("click", () => {
-    alert("Searching for: " + search.value);
-});
 
 const dropdownItems = document.querySelectorAll(".dropdown .item");
 const resourceCards = document.querySelectorAll(".resource-card");
@@ -152,95 +148,57 @@ window.addEventListener("click", function (event) {
 });
 
 
-// Select all Add to Favorites buttons
+// Add to Favorites
 const favoriteButtons = document.querySelectorAll(".favoritesBtn");
+const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-// Add a click event to every button
+// Mark buttons as already-favorited on page load
 favoriteButtons.forEach(button => {
+    const card = button.closest(".resource-card");
+    const id = card.dataset.id;
+    const exists = favorites.some(item => item.id === id);
 
+    if (exists) {
+        button.textContent = "Added to Favorites";
+        button.disabled = true;
+    }
+});
+
+// Handle new favorite clicks
+favoriteButtons.forEach(button => {
     button.addEventListener("click", function () {
-
-        // Get the resource card
         const card = this.closest(".resource-card");
-
-        // Create an object with the resource details
         const resource = {
+            id: card.dataset.id,
             title: card.querySelector("h3").textContent,
             location: card.querySelectorAll("p")[0].textContent,
             hours: card.querySelectorAll("p")[1].textContent
         };
 
-        // Get existing favorites
-        let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-        // Check if already saved
-        const exists = favorites.some(item => item.title === resource.title);
+        const exists = favorites.some(item => item.id === resource.id);
 
         if (!exists) {
-
             favorites.push(resource);
-
-            // Save back to localStorage
             localStorage.setItem("favorites", JSON.stringify(favorites));
-
-            // Change button text
             this.textContent = "Added to Favorites";
-
+            this.disabled = true;
         } else {
-
             alert("This resource is already in your favorites.");
-
         }
-
     });
-
 });
 
-
-
-
+// Render favorites on the favorites page
 const favoritesContainer = document.getElementById("favoritesContainer");
 
 if (favoritesContainer) {
-
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
     favorites.forEach(resource => {
-
         favoritesContainer.innerHTML += `
-
-        <div class="resource-card">
-
-            <h3>${resource.title}</h3>
-
-            <p>${resource.location}</p>
-
-            <p>${resource.hours}</p>
-
-        </div>
-
+            <div class="resource-card">
+                <h3>${resource.title}</h3>
+                <p>${resource.location}</p>
+                <p>${resource.hours}</p>
+            </div>
         `;
-
     });
-
 }
-
-
-const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-favoriteButtons.forEach(button => {
-
-    const card = button.closest(".resource-card");
-
-    const title = card.querySelector("h3").textContent;
-
-    const exists = favorites.some(item => item.title === title);
-
-    if (exists) {
-
-        button.textContent = "Added to Favorites";
-        button.disabled = true;
-
-    }
-
-});
