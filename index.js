@@ -116,7 +116,7 @@ const modal = document.getElementById("detailsModal");
 const closeBtn = document.querySelector(".close-btn");
 
 // Get all View Details buttons
-const buttons = document.querySelectorAll(".view-btn");
+const buttons = document.querySelectorAll("detailsBtn");
 
 // Add a click event to every button
 buttons.forEach(button => {
