@@ -208,9 +208,16 @@ hr{
     color: #555;
 }
 
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px auto;
+}
+
 .resource-card{
     width: 350px;
-    margin: 50px auto;
     border: 2px solid #69140E;
     border-radius: 15px;
     padding: 20px;
