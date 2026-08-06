@@ -232,3 +232,20 @@ function removeFavorite(id) {
     localStorage.setItem("favorites", JSON.stringify(favorites));
     renderFavorites(); // re-render so the removed card disappears immediately
 }
+
+const form = document.getElementById("help-form"); // match your actual form's id
+
+if (form) {
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // stops the page reload
+        
+        // your logic here — validate, save, whatever the form does
+        
+        // show a success message
+        const successMsg = document.getElementById("successMessage");
+        if (successMsg) {
+            successMsg.textContent = "Submitted successfully!";
+            successMsg.style.display = "block";
+        }
+    });
+}
